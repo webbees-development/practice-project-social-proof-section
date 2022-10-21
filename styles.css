@@ -1,0 +1,268 @@
+@import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@400;500;700&display=swap');
+
+/* reset basic styles */
+*, *::before, *::after {
+    box-sizing: border-box;
+
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    min-height: 100vh;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+}
+
+/* variables */
+:root {
+    --clr-primary: hsl(300, 43%, 22%);
+    --clr-accent: hsl(333, 80%, 67%);
+
+    --clr-dark-gray: hsl(303, 10%, 53%);
+    --clr-light-gray: hsl(300, 24%, 96%);
+    --clr-white: hsl(0, 0%, 100%);
+}
+
+/* utilities */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0,0,0,0);
+    border: 0;
+}
+
+/* styles */
+body {
+    font-family: "League Spartan", sans-serif;
+    font-size: 15px;
+
+    background-color: var(--clr-white);
+    background-image: url("./images/bg-pattern-top-mobile.svg"), url("./images/bg-pattern-bottom-mobile.svg");
+    background-repeat: no-repeat, no-repeat;
+    background-position: 0% 0%, 100% 50%;
+}
+
+h1 {
+    font-size: 40px;
+    font-weight: 700;
+    line-height: 0.8;
+
+    color: var(--clr-primary);
+
+    max-width: 12ch;
+    margin-inline: auto;
+
+    margin-block-end: 0.6em;
+}
+
+main {
+    margin: 3rem 1.5rem;
+}
+
+.author {
+    display: flex;
+}
+
+.general,
+.ratings {
+    text-align: center;
+
+    margin-block-end: 2.5rem;
+}
+
+.general > p {
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 1.4;
+
+    color: var(--clr-dark-gray);
+
+    max-width: 32ch;
+    margin-inline: auto;
+}
+
+.quotes > article {
+    padding: 2.5rem 2rem;
+
+    background-color: var(--clr-primary);
+    border-radius: 0.5rem;
+}
+
+.quotes blockquote {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.4;
+    
+    color: var(--clr-white);
+
+    margin-block-start: 1.75rem;
+}
+
+.quotes blockquote::before {
+    content: "“";
+}
+
+.quotes blockquote::after {
+    content: "”";
+}
+
+.quotes h2 {
+    font-size: 16px;
+    font-weight: 700;
+
+    color: var(--clr-white);
+
+    margin-block-end: 0.25rem;
+}
+
+.quotes p {
+    font-size: 16px;
+    font-weight: 400;
+
+    color: var(--clr-accent);
+}
+
+.quotes .info {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.quotes .image-container {
+    --item-width: 2.5rem;
+
+    width: var(--item-width);
+    aspect-ratio: 1;
+    border-radius: calc(var(--item-width) / 2);
+
+    overflow: hidden;
+}
+
+.quotes .info {
+    margin-inline-start: 1.5rem;
+}
+
+.ratings {
+    margin-block-start: 1.5rem;
+}
+
+.ratings > article {
+    padding: 1rem;
+
+    background-color: var(--clr-light-gray);
+    border-radius: 0.5rem;
+}
+
+.quotes > article + article,
+.ratings > article + article {
+    margin-block-start: 1rem;
+}
+
+.ratings p {
+    font-size: 16px;
+    font-weight: 700;
+
+    color: var(--clr-primary);
+}
+
+.stars {
+    margin-block-end: 0.75rem;
+}
+
+.stars img {
+    display: inline-block;
+    padding-inline: 1px;
+}
+
+@media (min-width: 62rem) {
+    body {
+        background-image: url("./images/bg-pattern-top-desktop.svg"), url("./images/bg-pattern-bottom-desktop.svg");
+
+        max-width: 1920px;
+    }
+
+    h1 {
+        font-size: 48px;
+    }
+
+    main {
+        max-width: calc(1440px - 16rem);
+        padding-inline: 2rem;
+        margin-inline: auto;
+        margin-block: 7.5rem;
+
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .general,
+    .ratings {
+        text-align: left;
+    }
+
+    .general h1,
+    .general p {
+        margin-inline-start: 0;
+    }
+
+    .general > p {
+        max-width: 40ch;
+    }
+
+    .quotes {
+        grid-column-start: 1;
+        grid-column-end: 3;
+
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+
+        gap: 2rem;
+
+        margin-block-start: 2rem;
+    }
+
+    .quotes > article + article {
+        margin-block-start: 0;
+    }
+
+    .quotes article:nth-child(2) {
+        transform: translateY(1rem);
+    }
+
+    .quotes article:nth-child(3) {
+        transform: translateY(2rem);
+    }
+
+    .ratings article {
+        max-width: 26rem;
+
+        margin-inline-start: auto;
+    }
+
+    .ratings article:nth-child(1) {
+        transform: translateX(-6rem);
+    }
+
+    .ratings article:nth-child(2) {
+        transform: translateX(-3rem);
+    }
+
+    .ratings p,
+    .stars {
+        display: inline-block;
+    }
+
+    .stars {
+        margin-block-end: 0;
+        margin-inline-start: 1rem;
+        margin-inline-end: 1.5rem;
+    }
+}
