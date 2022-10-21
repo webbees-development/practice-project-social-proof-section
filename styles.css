@@ -48,6 +48,7 @@ body {
     background-image: url("./images/bg-pattern-top-mobile.svg"), url("./images/bg-pattern-bottom-mobile.svg");
     background-repeat: no-repeat, no-repeat;
     background-position: 0% 0%, 100% 50%;
+    background-size: cover, cover;
 }
 
 h1 {
